@@ -1,4 +1,4 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Ôn tập HSK 4 Dolin</title>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Ôn tập HSK 4 3.0 · Tiếng Trung Dolin</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap">
 <style>
@@ -88,7 +88,7 @@ th:first-child,td:first-child{text-align:left}
 
 <div class="bar"><div class="bar-in">
   <img src="logo.png" alt="Tiếng Trung Dolin">
-  <h1>Ôn tập HSK 4 · Tiếng Trung Dolin</h1>
+  <h1>Ôn tập HSK 4 3.0 · Tiếng Trung Dolin</h1>
   <a href="#bai-hoc" id="nav-home">Bài học</a>
   <a href="#thi-thu" id="nav-exam">Thi thử</a>
   <a href="#bang-diem" id="nav-score">Bảng điểm</a>
@@ -129,7 +129,7 @@ const wait=(ms,my)=>new Promise(r=>setTimeout(()=>r(my===run),ms));
 let run=0; /* cancels running sequences when the view changes */
 /* ---------- views ---------- */
 function home(){
-  const v=$(`<div><h2>Chọn bài để ôn tập</h2><p class="sub">Giáo trình HSK 4 (3.0) · 20 bài · giọng đọc 晓晓. Điểm được lưu trên máy này.</p>
+  const v=$(`<div><h2>Chọn bài để ôn tập</h2><p class="sub">Giáo trình HSK 4 (3.0) · 20 bài. Điểm được lưu trên máy này.</p>
   <div class="card row" style="margin-bottom:16px"><label for="stu" style="font-weight:600">Tên học viên</label><input type="text" id="stu" style="flex:1;min-width:160px" placeholder="Nhập tên để ghi vào bảng điểm"></div>
   <div class="grid" id="g"></div></div>`);
   const inp=v.querySelector('#stu');inp.value=S.name||'';inp.oninput=()=>{S.name=inp.value.trim();save()};
@@ -246,11 +246,11 @@ VIEW.rep=l=>{const v=$(`<div class="card"><h3>听和跟读 · Nghe và nhắc l�
 /* ---------- mock exam ---------- */
 function exam(){
   if(!EX)return $('<p>Chưa có dữ liệu đề thi.</p>');
-  const v=$(`<div><h2>Đề thi thử HSK 4</h2><p class="sub">50 câu · Nghe 20 · Đọc 20 · Viết 10 · thời gian 45 phút · mỗi phần 100 điểm, tổng 300, đạt từ 180.</p>
+  const v=$(`<div><h2>Đề thi thử HSK 4 3.0</h2><p class="sub">50 câu · Nghe 20 · Đọc 20 · Viết 10 · thời gian 45 phút · mỗi phần 100 điểm, tổng 300, đạt từ 180.</p>
     <div class="card"><p>Phần nghe: mỗi câu được nghe tối đa 2 lần. Bấm <b>Nộp bài</b> ở cuối trang để xem điểm.</p><button class="btn" id="st">Bắt đầu làm bài</button></div></div>`);
   v.querySelector('#st').onclick=()=>app.replaceChildren(examRun());return v}
 function examRun(){
-  const my=++run,A={},v=$(`<div><h2>Đề thi thử HSK 4</h2><p class="sub">Còn lại <b id="tm" style="font-variant-numeric:tabular-nums">45:00</b></p><div id="body"></div><div class="sticky-foot row"><button class="btn" id="sub">Nộp bài</button><span class="note" id="cnt"></span></div></div>`);
+  const my=++run,A={},v=$(`<div><h2>Đề thi thử HSK 4 3.0</h2><p class="sub">Còn lại <b id="tm" style="font-variant-numeric:tabular-nums">45:00</b></p><div id="body"></div><div class="sticky-foot row"><button class="btn" id="sub">Nộp bài</button><span class="note" id="cnt"></span></div></div>`);
   const body=v.querySelector('#body');let no=0;const keyOf=[];
   const sec=(t,d)=>{const c=$(`<div class="card" style="margin-bottom:14px"><h3>${t}</h3><p class="note">${d}</p></div>`);body.append(c);return c};
   const count=()=>{v.querySelector('#cnt').textContent=`Đã làm ${Object.keys(A).length}/50 câu`};
@@ -295,7 +295,7 @@ function board(){
   <textarea id="out" rows="6" hidden readonly style="margin-top:10px"></textarea></div>`);
   v.querySelector('#ex').innerHTML=S.exam.length?S.exam.map((r,i)=>`<p>Lần ${i+1} · ${r.d}: <b>${r.t}/300</b> (Nghe ${r.l}, Đọc ${r.r}, Viết ${r.w}) <span class="tag ${r.t>=180?'':'no'}">${r.t>=180?'Đạt':'Chưa đạt'}</span></p>`).join(''):'<p class="note">Chưa làm đề thi thử.</p>';
   v.querySelector('#tb').innerHTML='<tr><th>Bài</th>'+ACTS.map(a=>`<th>${a[1]}</th>`).join('')+'<th>TB</th></tr>'+L.map(l=>{const o=S.les[l.n]||{};return `<tr><td>${l.n}. <span class="han">${esc(l.zh)}</span></td>`+ACTS.map(a=>`<td>${o[a[0]]!==undefined?o[a[0]]:'–'}</td>`).join('')+`<td><b>${lessonPct(l.n)}</b></td></tr>`}).join('');
-  const text=()=>`Kết quả ôn tập HSK 4 – ${S.name||'Học viên'}\n`+(S.exam.length?S.exam.map((r,i)=>`Thi thử lần ${i+1} (${r.d}): ${r.t}/300 – Nghe ${r.l}, Đọc ${r.r}, Viết ${r.w}`).join('\n')+'\n':'')+L.filter(l=>S.les[l.n]).map(l=>`Bài ${l.n}: ${lessonPct(l.n)}% (`+ACTS.filter(a=>S.les[l.n][a[0]]!==undefined).map(a=>`${a[1]} ${S.les[l.n][a[0]]}`).join(', ')+')').join('\n');
+  const text=()=>`Kết quả ôn tập HSK 4 3.0 – ${S.name||'Học viên'}\n`+(S.exam.length?S.exam.map((r,i)=>`Thi thử lần ${i+1} (${r.d}): ${r.t}/300 – Nghe ${r.l}, Đọc ${r.r}, Viết ${r.w}`).join('\n')+'\n':'')+L.filter(l=>S.les[l.n]).map(l=>`Bài ${l.n}: ${lessonPct(l.n)}% (`+ACTS.filter(a=>S.les[l.n][a[0]]!==undefined).map(a=>`${a[1]} ${S.les[l.n][a[0]]}`).join(', ')+')').join('\n');
   v.querySelector('#cp').onclick=()=>{const t=text(),out=v.querySelector('#out'),msg=v.querySelector('#msg');out.value=t;const fb=()=>{out.hidden=false;out.select();msg.textContent='Hãy sao chép nội dung trong ô bên dưới.'};
     try{navigator.clipboard.writeText(t).then(()=>{msg.textContent='Đã sao chép.'}).catch(fb)}catch(e){fb()}};
   let arm=false;v.querySelector('#rs').onclick=e=>{if(!arm){arm=true;e.target.textContent='Bấm lần nữa để xóa hết điểm';return}S.les={};S.exam=[];save();route()};
