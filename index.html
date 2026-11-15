@@ -1,35 +1,91 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap&text=%E3%80%82%E4%B8%8D%E4%B8%BA%E4%B9%A6%E4%BD%9C%E5%88%99%E5%8A%A0%E5%8B%A4%E5%AD%A6%E5%B1%B1%E5%BE%84%E6%80%9D%E6%97%A0%E6%9C%89%E6%AE%86%E6%B2%B9%E6%B5%B7%E6%B6%AF%E7%BD%94%E8%80%8C%E8%88%9F%E8%8B%A6%E8%AE%BA%E8%AF%AD%E8%B7%AF%EF%BC%81%EF%BC%8C" rel="stylesheet"><style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}
 /* ---------- trang mở đầu ---------- */
 body.landing .bar{display:none}
 body.landing::before{display:none}
-.hero{position:relative;min-height:100vh;min-height:100dvh;margin:0 calc(50% - 50vw);padding:calc(env(safe-area-inset-top,0px) + 28px) 20px 32px;
-  background:radial-gradient(120% 80% at 50% 0%,#C24E2A 0%,#A8391B 45%,#7A2A13 100%);color:#FFF6EE;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;box-sizing:border-box}
-.hero::before{content:"學";position:absolute;font-family:var(--han);font-size:min(70vw,560px);line-height:1;color:rgba(255,236,210,.06);top:50%;left:50%;transform:translate(-50%,-52%);pointer-events:none}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,230,190,.10) 1px,transparent 1.2px);background-size:22px 22px;mask-image:linear-gradient(#000,transparent 75%);-webkit-mask-image:linear-gradient(#000,transparent 75%)}
-.hero>*{position:relative;z-index:1}
-.hero .lan{position:absolute;top:0;width:clamp(54px,10vw,92px);z-index:1;transform-origin:50% 0}
-.hero .lan.l{left:clamp(10px,6vw,80px)}.hero .lan.r{right:clamp(10px,6vw,80px)}
-@media (prefers-reduced-motion:no-preference){.hero .lan{animation:sway 4.5s ease-in-out infinite}.hero .lan.r{animation-delay:-2.2s}
+.hero{--gold:#F2C46D;--gold2:#FFE2A3;--paper:#FBF3E2;--ink:#7A2A13;position:relative;min-height:100vh;min-height:100dvh;margin:0 calc(50% - 50vw);
+  padding:calc(env(safe-area-inset-top,0px) + 26px) 16px 110px;box-sizing:border-box;overflow:hidden;color:#FFF6EE;text-align:center;
+  background:radial-gradient(60% 42% at 50% 18%,rgba(255,196,120,.30),transparent 70%),radial-gradient(130% 90% at 50% 0%,#C4502B 0%,#A23A1C 48%,#6E2511 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.10;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M4 4h40v40H4zM12 12h24v24H12zM20 20h8v8h-8z' fill='none' stroke='%23FFD9A0' stroke-width='1.2'/%3E%3C/svg%3E");
+  mask-image:radial-gradient(70% 60% at 50% 40%,transparent 45%,#000 100%);-webkit-mask-image:radial-gradient(70% 60% at 50% 40%,transparent 45%,#000 100%)}
+.hero>.in,.hero>.cards,.hero>.foot{position:relative;z-index:3}
+/* núi + mây + cánh hoa */
+.hero .mtn{position:absolute;left:0;right:0;bottom:0;width:100%;height:clamp(120px,22vw,250px);z-index:1;pointer-events:none}
+.hero .cloud{position:absolute;z-index:1;pointer-events:none;opacity:.55;width:clamp(110px,16vw,200px)}
+.hero .cloud.c1{top:16%;left:-30px}.hero .cloud.c2{top:46%;right:-40px;transform:scaleX(-1)}.hero .cloud.c3{bottom:26%;left:6%;width:clamp(80px,10vw,130px);opacity:.35}
+.hero .petal{position:absolute;top:-30px;z-index:2;pointer-events:none;width:14px;height:14px;border-radius:14px 2px 14px 2px;background:linear-gradient(135deg,#FFD3D3,#F48FA0);opacity:.85}
+/* đèn lồng + câu đối */
+.hero .lan{position:absolute;top:0;width:clamp(50px,9vw,86px);z-index:2;transform-origin:50% 0}
+.hero .lan.l{left:clamp(8px,5vw,70px)}.hero .lan.r{right:clamp(8px,5vw,70px)}
+.hero .duilian{display:none}
+@media (min-width:980px){.hero .duilian{display:block;position:absolute;top:150px;z-index:2;writing-mode:vertical-rl;font-family:'Ma Shan Zheng',var(--han);font-size:30px;letter-spacing:.18em;
+  color:#3B1206;background:linear-gradient(#E9B04F,#D99A36);padding:22px 10px;border-radius:4px;box-shadow:0 10px 24px rgba(0,0,0,.25),inset 0 0 0 3px rgba(122,42,19,.35)}
+  .hero .duilian.l{left:clamp(30px,4vw,70px)}.hero .duilian.r{right:clamp(30px,4vw,70px)}}
+@media (prefers-reduced-motion:no-preference){
+  .hero .lan{animation:sway 4.5s ease-in-out infinite}.hero .lan.r{animation-delay:-2.2s}
   @keyframes sway{0%,100%{transform:rotate(3deg)}50%{transform:rotate(-3deg)}}
-  .hero .in{animation:rise .8s ease-out both}@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}}
-.hero .logo{width:104px;height:104px;border-radius:50%;box-shadow:0 0 0 4px rgba(255,214,150,.55),0 10px 30px rgba(0,0,0,.25);background:#fff}
-.hero .brand{margin:14px 0 2px;letter-spacing:.18em;text-transform:uppercase;font-size:13px;color:#F7C873;font-weight:700}
-.hero h2{margin:4px 0 2px;font-size:clamp(32px,7vw,54px);line-height:1.1;color:#FFF6EE}
-.hero .cn{font-family:var(--han);font-size:clamp(17px,3.2vw,22px);color:#FCE3C2;letter-spacing:.25em;margin-bottom:22px}
-.quote{max-width:620px;width:100%;margin:0 auto 22px;padding:22px 24px 18px;border-radius:18px;background:rgba(255,246,238,.10);border:1px solid rgba(255,214,150,.35);backdrop-filter:blur(2px)}
-.quote .zh{font-family:var(--han);font-size:clamp(22px,4.6vw,32px);line-height:1.55;color:#FFFFFF}
-.quote .py{font-style:italic;color:#F7C873;font-size:15px;margin-top:6px}
-.quote .vi{color:#FCE3C2;font-size:15.5px;margin-top:6px;line-height:1.5}
-.quote .hv{color:#FFE7B8;font-size:14px;margin-top:4px;opacity:.85}
-.quote .vi{font-size:17px;font-weight:600;color:#FFF6EE}
-.quote .src{font-size:13px;color:#F2B98A;margin-top:8px}
-.quote .nxt{margin-top:10px;background:none;border:1px solid rgba(255,214,150,.45);color:#F7C873;border-radius:999px;padding:4px 12px;font-size:13px;cursor:pointer}
-.hero .wish{font-size:clamp(18px,3.6vw,22px);font-weight:700;color:#FFE7B8;margin:0 0 20px}
-.hero .go{display:inline-block;background:#F7C873;color:#5A1E0C;font-weight:800;font-size:18px;padding:14px 30px;border-radius:999px;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.25)}
-.hero .go:hover{background:#FFD98F}
-.hero .sub2{margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.hero .sub2 a{color:#FCE3C2;text-decoration:none;border:1px solid rgba(255,214,150,.4);border-radius:999px;padding:7px 14px;font-size:14px}
-.hero .foot{margin-top:26px;font-size:12.5px;color:rgba(252,227,194,.75)}
+  .hero .in>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero .in>*:nth-child(2){animation-delay:.08s}.hero .in>*:nth-child(3){animation-delay:.16s}.hero .in>*:nth-child(4){animation-delay:.24s}
+  .hero .in>*:nth-child(5){animation-delay:.34s}.hero .in>*:nth-child(6){animation-delay:.44s}.hero .in>*:nth-child(7){animation-delay:.52s}
+  .hero .cards{animation:rise .9s .6s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .hero .cloud{animation:drift 26s ease-in-out infinite alternate}.hero .cloud.c2{animation-duration:32s}
+  @keyframes drift{from{translate:0 0}to{translate:40px 6px}}
+  .hero .ring{animation:spin 40s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+  .hero .petal{animation:fall linear infinite}
+  @keyframes fall{0%{transform:translate(0,0) rotate(0)}100%{transform:translate(var(--dx,60px),110vh) rotate(540deg)}}
+  .hero .go::after{animation:shine 3.2s 1.2s ease-in-out infinite}
+  @keyframes shine{0%{left:-60%}35%,100%{left:130%}}}
+@media (prefers-reduced-motion:reduce){.hero .petal{display:none}}
+/* logo + tiêu đề */
+.hero .badge{position:relative;width:116px;height:116px;margin:0 auto;display:grid;place-items:center}
+.hero .badge::before{content:"";position:absolute;inset:-18px;border-radius:50%;background:radial-gradient(circle,rgba(255,214,140,.45),transparent 68%)}
+.hero .ring{position:absolute;inset:0;width:100%;height:100%}
+.hero .logo{position:relative;width:92px;height:92px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px var(--gold),0 12px 30px rgba(0,0,0,.3)}
+.hero .brand{margin:14px 0 4px;letter-spacing:.2em;text-transform:uppercase;font-size:12.5px;color:var(--gold);font-weight:800}
+.hero h2{margin:0;font-size:clamp(34px,7.4vw,58px);line-height:1.08;font-weight:800;letter-spacing:-.01em;
+  background:linear-gradient(180deg,#FFFFFF 10%,#FFE2A3 95%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 2px 0 rgba(0,0,0,.0)}
+.hero .orn{display:flex;align-items:center;justify-content:center;gap:12px;margin:8px auto 20px;color:var(--gold2);font-family:var(--han);font-size:clamp(16px,3vw,20px);letter-spacing:.3em}
+.hero .orn::before,.hero .orn::after{content:"";width:clamp(36px,10vw,90px);height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.hero .orn::after{transform:scaleX(-1)}
+.hero .orn i{font-style:normal;color:var(--gold);font-size:11px;letter-spacing:0}
+/* cuộn thư */
+.scroll{position:relative;max-width:600px;width:calc(100% - 24px);margin:6px auto 22px;padding:24px clamp(18px,4vw,40px) 20px;box-sizing:border-box;color:var(--ink);
+  background:radial-gradient(120% 90% at 50% 50%,#FFFBF2 0%,var(--paper) 60%,#EEDCB9 100%);box-shadow:0 18px 40px rgba(40,8,0,.35)}
+.scroll::before,.scroll::after{content:"";position:absolute;left:-14px;right:-14px;height:16px;border-radius:8px;
+  background:linear-gradient(180deg,#8A4A26,#4A220F 70%,#5C2B13);box-shadow:0 3px 6px rgba(0,0,0,.35)}
+.scroll::before{top:-8px}.scroll::after{bottom:-8px}
+.scroll .cap{position:absolute;width:12px;height:22px;border-radius:4px;background:linear-gradient(90deg,#B9822E,#F2C46D,#B9822E);z-index:1}
+.scroll .cap.a{top:-11px;left:-22px}.scroll .cap.b{top:-11px;right:-22px}.scroll .cap.c{bottom:-11px;left:-22px}.scroll .cap.d{bottom:-11px;right:-22px}
+.scroll .zh{font-family:'Ma Shan Zheng',var(--han);font-size:clamp(26px,5.6vw,38px);line-height:1.4;color:#5A1A08;letter-spacing:.04em}
+.scroll .zh span{display:inline-block}.scroll .zh .cm{margin-right:.15em}
+.scroll .py{font-style:italic;color:#A0522D;font-size:15px;margin-top:6px}
+.scroll .hv{color:#8C6A4A;font-size:14px;margin-top:3px}
+.scroll .line{width:60px;height:2px;margin:12px auto;background:linear-gradient(90deg,transparent,#C9883A,transparent)}
+.scroll .vi{font-size:clamp(16px,3.2vw,18.5px);font-weight:700;line-height:1.6;color:#6B2410}
+.scroll .src{font-size:13px;color:#9A6B48;margin-top:8px}
+.scroll .seal{position:absolute;right:clamp(10px,3vw,22px);bottom:18px;width:46px;height:46px;border-radius:6px;background:#C7341F;color:#FFEFE0;transform:rotate(-8deg);
+  font-family:'Ma Shan Zheng',var(--han);font-size:19px;line-height:1;display:flex;align-items:center;justify-content:center;padding:4px;box-sizing:border-box;
+  box-shadow:inset 0 0 0 2px rgba(255,235,215,.6);opacity:.9;flex-direction:column;line-height:1.05;text-align:center}
+@media (max-width:520px){.scroll .seal{width:38px;height:38px;font-size:16px;bottom:10px}.hero .brand{letter-spacing:.08em;font-size:11px}.scroll .vi{font-size:15.5px}.scroll .py{font-size:14px}}
+/* lời chúc + nút */
+.hero .wish{font-size:clamp(18px,3.8vw,23px);font-weight:800;color:var(--gold2);margin:0 0 18px}
+.hero .wish b{font-family:'Ma Shan Zheng',var(--han);font-weight:400;font-size:1.25em;color:#FFF;margin-left:6px}
+.hero .go{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;background:linear-gradient(180deg,#FFE09A,#F0B44C);color:#5A1E0C;font-weight:800;font-size:18px;
+  padding:15px 34px;border-radius:999px;text-decoration:none;box-shadow:0 10px 26px rgba(0,0,0,.3),inset 0 -3px 0 rgba(150,80,10,.35);transition:transform .15s}
+.hero .go:hover{transform:translateY(-2px)}
+.hero .go::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg)}
+/* thẻ mục */
+.hero .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:640px;width:100%;margin:24px auto 0}
+.hero .card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 10px;border-radius:16px;text-decoration:none;color:#FFF6EE;
+  background:rgba(255,240,220,.09);border:1px solid rgba(242,196,109,.35);backdrop-filter:blur(3px);transition:background .2s,transform .2s}
+.hero .card:hover{background:rgba(255,240,220,.17);transform:translateY(-3px)}
+.hero .card .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,#FFE09A,#E9A93F);color:#6E2511}
+.hero .card .ic svg{width:24px;height:24px}
+.hero .card b{font-size:15.5px}.hero .card small{font-size:12.5px;color:#FCE3C2;line-height:1.35}
+@media (max-width:480px){.hero .cards{gap:8px}.hero .card{padding:12px 6px}.hero .card small{display:none}}
+.hero .foot{margin-top:22px;font-size:12.5px;color:rgba(252,227,194,.8)}
 </style></head><body><title>Ôn tập HSK 4 3.0 · Tiếng Trung Dolin</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap">
@@ -335,21 +391,33 @@ function board(){
 
 /* ---------- trang mở đầu ---------- */
 const QUOTES=[
- ['学而不思则罔，思而不学则殆。','xué ér bù sī zé wǎng, sī ér bù xué zé dài','Học nhi bất tư tắc võng, tư nhi bất học tắc đãi.','Học mà chẳng nghĩ, ắt mờ mịt chẳng thông;<br>Nghĩ mà chẳng học, ắt chênh vênh nguy hiểm.','《论语 · 为政》 · Khổng Tử'],
+ ['学而不思则罔，思而不学则殆。','xué ér bù sī zé wǎng, sī ér bù xué zé dài','Học nhi bất tư tắc võng, tư nhi bất học tắc đãi.','Học phải đi đôi với tư duy,<br>tư duy phải bắt nguồn từ học hỏi.','《论语 · 为政》 · Khổng Tử'],
 ];
-function landing(){let k=Math.floor(Math.random()*QUOTES.length);
-  const v=$(`<section class="hero"><svg class="lan l" viewBox="0 0 60 120" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="22" stroke="#F7C873" stroke-width="2"/><rect x="20" y="20" width="20" height="7" rx="2" fill="#F7C873"/><ellipse cx="30" cy="55" rx="26" ry="29" fill="#E2412A"/><ellipse cx="30" cy="55" rx="15" ry="29" fill="none" stroke="#B5261A" stroke-width="2"/><line x1="30" y1="26" x2="30" y2="84" stroke="#B5261A" stroke-width="2"/><rect x="20" y="82" width="20" height="7" rx="2" fill="#F7C873"/><g stroke="#F7C873" stroke-width="2"><line x1="25" y1="89" x2="25" y2="110"/><line x1="30" y1="89" x2="30" y2="114"/><line x1="35" y1="89" x2="35" y2="110"/></g></svg><svg class="lan r" viewBox="0 0 60 120" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="22" stroke="#F7C873" stroke-width="2"/><rect x="20" y="20" width="20" height="7" rx="2" fill="#F7C873"/><ellipse cx="30" cy="55" rx="26" ry="29" fill="#E2412A"/><ellipse cx="30" cy="55" rx="15" ry="29" fill="none" stroke="#B5261A" stroke-width="2"/><line x1="30" y1="26" x2="30" y2="84" stroke="#B5261A" stroke-width="2"/><rect x="20" y="82" width="20" height="7" rx="2" fill="#F7C873"/><g stroke="#F7C873" stroke-width="2"><line x1="25" y1="89" x2="25" y2="110"/><line x1="30" y1="89" x2="30" y2="114"/><line x1="35" y1="89" x2="35" y2="110"/></g></svg><div class="in">
-    <img class="logo" src="logo.png" alt="Tiếng Trung Dolin">
-    <div class="brand">Tiếng Trung Dolin · Dạy tiếng Trung từ tâm</div>
-    <h2>Ôn tập HSK 4 3.0</h2>
-    <div class="cn">汉语水平考试 · 四级</div>
-    <div class="quote"><div class="zh" id="qz"></div><div class="py" id="qp"></div><div class="hv" id="qh"></div><div class="vi" id="qv"></div><div class="src" id="qs"></div></div>
-    <p class="wish">Chúc các em học tốt! 加油！</p>
-    <a class="go" href="#bai-hoc">Bắt đầu ôn tập →</a>
-    <div class="sub2"><a href="#thi-thu">Thi thử</a><a href="#bang-diem">Bảng điểm</a></div>
-    <div class="foot">Giáo trình HSK 4 (3.0) · 20 bài · Giáo viên: 杨老师</div></div></section>`);
-  const show=()=>{const q=QUOTES[k];v.querySelector('#qz').textContent=q[0];v.querySelector('#qp').textContent=q[1];v.querySelector('#qh').textContent=q[2];v.querySelector('#qv').innerHTML=q[3];v.querySelector('#qs').textContent='— '+q[4]};
-  show();return v}
+function landing(){const q=QUOTES[0];
+  const v=$(`<section class="hero"><svg class="mtn" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true"><path d="M0 150 L120 90 L210 130 L330 60 L450 140 L560 100 L690 160 L800 80 L930 150 L1050 70 L1180 140 L1300 95 L1440 150 V260 H0Z" fill="#8E3018" opacity=".55"/><path d="M0 190 L150 130 L260 175 L400 115 L520 185 L660 140 L780 195 L920 130 L1060 190 L1190 135 L1320 185 L1440 150 V260 H0Z" fill="#6E2511" opacity=".8"/><path d="M0 225 C180 195 300 240 480 215 S800 190 980 222 S1300 200 1440 220 V260 H0Z" fill="#561C0C"/></svg><svg class="cloud c1" viewBox="0 0 200 80" aria-hidden="true" fill="none" stroke="#FFD9A0" stroke-width="2.2" stroke-linecap="round"><path d="M14 62 H170 a14 14 0 0 0 0-28 a22 22 0 0 0-40-14 a26 26 0 0 0-48 4 a18 18 0 0 0-30 12 a14 14 0 0 0-38 26"/><path d="M60 48 a8 8 0 1 1 10 8"/><path d="M118 40 a9 9 0 1 1 12 9"/><path d="M40 72 H120"/></svg><svg class="cloud c2" viewBox="0 0 200 80" aria-hidden="true" fill="none" stroke="#FFD9A0" stroke-width="2.2" stroke-linecap="round"><path d="M14 62 H170 a14 14 0 0 0 0-28 a22 22 0 0 0-40-14 a26 26 0 0 0-48 4 a18 18 0 0 0-30 12 a14 14 0 0 0-38 26"/><path d="M60 48 a8 8 0 1 1 10 8"/><path d="M118 40 a9 9 0 1 1 12 9"/><path d="M40 72 H120"/></svg><svg class="cloud c3" viewBox="0 0 200 80" aria-hidden="true" fill="none" stroke="#FFD9A0" stroke-width="2.2" stroke-linecap="round"><path d="M14 62 H170 a14 14 0 0 0 0-28 a22 22 0 0 0-40-14 a26 26 0 0 0-48 4 a18 18 0 0 0-30 12 a14 14 0 0 0-38 26"/><path d="M60 48 a8 8 0 1 1 10 8"/><path d="M118 40 a9 9 0 1 1 12 9"/><path d="M40 72 H120"/></svg><svg class="lan l" viewBox="0 0 60 120" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="22" stroke="#F2C46D" stroke-width="2"/><rect x="20" y="20" width="20" height="7" rx="2" fill="#F2C46D"/><ellipse cx="30" cy="55" rx="26" ry="29" fill="#E2412A"/><ellipse cx="30" cy="55" rx="26" ry="29" fill="url(#lg)"/><ellipse cx="30" cy="55" rx="15" ry="29" fill="none" stroke="#B5261A" stroke-width="2"/><line x1="30" y1="26" x2="30" y2="84" stroke="#B5261A" stroke-width="2"/><text x="30" y="62" font-size="18" text-anchor="middle" fill="#FFE2A3" font-family="serif">福</text><rect x="20" y="82" width="20" height="7" rx="2" fill="#F2C46D"/><g stroke="#F2C46D" stroke-width="2"><line x1="25" y1="89" x2="25" y2="110"/><line x1="30" y1="89" x2="30" y2="114"/><line x1="35" y1="89" x2="35" y2="110"/></g><defs><radialGradient id="lg" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#FFB27A" stop-opacity=".55"/><stop offset="1" stop-color="#7A1408" stop-opacity=".25"/></radialGradient></defs></svg><svg class="lan r" viewBox="0 0 60 120" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="22" stroke="#F2C46D" stroke-width="2"/><rect x="20" y="20" width="20" height="7" rx="2" fill="#F2C46D"/><ellipse cx="30" cy="55" rx="26" ry="29" fill="#E2412A"/><ellipse cx="30" cy="55" rx="26" ry="29" fill="url(#lg2)"/><ellipse cx="30" cy="55" rx="15" ry="29" fill="none" stroke="#B5261A" stroke-width="2"/><line x1="30" y1="26" x2="30" y2="84" stroke="#B5261A" stroke-width="2"/><text x="30" y="62" font-size="18" text-anchor="middle" fill="#FFE2A3" font-family="serif">福</text><rect x="20" y="82" width="20" height="7" rx="2" fill="#F2C46D"/><g stroke="#F2C46D" stroke-width="2"><line x1="25" y1="89" x2="25" y2="110"/><line x1="30" y1="89" x2="30" y2="114"/><line x1="35" y1="89" x2="35" y2="110"/></g><defs><radialGradient id="lg2" cx=".35" cy=".35" r=".7"><stop offset="0" stop-color="#FFB27A" stop-opacity=".55"/><stop offset="1" stop-color="#7A1408" stop-opacity=".25"/></radialGradient></defs></svg>
+    <div class="duilian l" aria-hidden="true">书山有路勤为径</div><div class="duilian r" aria-hidden="true">学海无涯苦作舟</div>
+    <div class="in">
+      <div class="badge"><svg class="ring" viewBox="0 0 116 116" aria-hidden="true"><circle cx="58" cy="58" r="55" fill="none" stroke="#F2C46D" stroke-width="1.5" stroke-dasharray="2 7" stroke-linecap="round"/></svg><img class="logo" src="logo.png" alt="Tiếng Trung Dolin"></div>
+      <div class="brand">Tiếng Trung Dolin · Dạy tiếng Trung từ tâm</div>
+      <h2>Ôn tập HSK 4 3.0</h2>
+      <div class="orn">汉语水平考试<i>◆</i>四级</div>
+      <figure class="scroll" style="margin-left:auto;margin-right:auto"><span class="cap a"></span><span class="cap b"></span><span class="cap c"></span><span class="cap d"></span>
+        <div class="zh"></div><div class="py"></div><div class="hv"></div><div class="line"></div><div class="vi"></div><figcaption class="src"></figcaption><div class="seal" aria-hidden="true"><span>论</span><span>语</span></div></figure>
+      <p class="wish">Chúc các em học tốt!<b>加油！</b></p>
+      <div><a class="go" href="#bai-hoc">Bắt đầu ôn tập <span aria-hidden="true">→</span></a></div>
+    </div>
+    <nav class="cards">
+      <a class="card" href="#bai-hoc"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M9 7h6"/></svg></span><b>Bài học</b><small>20 bài · từ vựng, nghe, dịch</small></a>
+      <a class="card" href="#thi-thu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6M8 4h8v16H8z"/><path d="M11 9h2M11 13h2"/></svg></span><b>Thi thử</b><small>Đề tổng hợp Nghe · Đọc · Viết</small></a>
+      <a class="card" href="#bang-diem"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M16 5h3a3 3 0 0 1-3 4M8 5H5a3 3 0 0 0 3 4M12 13v4M8 20h8"/></svg></span><b>Bảng điểm</b><small>Theo dõi tiến bộ của em</small></a>
+    </nav>
+    <div class="foot">Giáo trình HSK 4 (3.0) · 20 bài · Giáo viên: 杨老师</div></section>`);
+  v.querySelector('.zh').innerHTML=q[0].split('，').map(x=>'<span>'+x+'</span>').join('<span class="cm">，</span>');v.querySelector('.py').textContent=q[1];v.querySelector('.hv').textContent=q[2];
+  v.querySelector('.vi').innerHTML=q[3];v.querySelector('.src').textContent='— '+q[4];
+  for(let i=0;i<12;i++){const p=document.createElement('span');p.className='petal';const z=8+Math.random()*9;
+    p.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;animation-duration:${11+Math.random()*10}s;animation-delay:${-Math.random()*20}s;--dx:${(Math.random()*160-40)|0}px;opacity:${.5+Math.random()*.4}`;
+    v.appendChild(p)}
+  return v}
 /* ---------- router ---------- */
 function route(){run++;stopClip();const h=(location.hash||'').slice(1);let v;document.body.classList.toggle('landing',h===''||h==='trang-dau');if(h===''||h==='trang-dau'){app.replaceChildren(landing());window.scrollTo(0,0);return}
   const m=h.match(/^bai-(\d+)$/);
