@@ -129,7 +129,7 @@ const wait=(ms,my)=>new Promise(r=>setTimeout(()=>r(my===run),ms));
 let run=0; /* cancels running sequences when the view changes */
 /* ---------- views ---------- */
 function home(){
-  const v=$(`<div><h2>Chọn bài để ôn tập</h2><p class="sub">Giáo trình HSK 4 (3.0) · 20 bài. Điểm được lưu trên máy này.</p>
+  const v=$(`<div><p style="margin:0 0 6px;font-size:20px;font-weight:700;color:var(--brand)">Chúc các em học tốt! 加油！</p><h2>Chọn bài để ôn tập</h2><p class="sub">Giáo trình HSK 4 (3.0) · 20 bài. Điểm được lưu trên máy này.</p>
   <div class="card row" style="margin-bottom:16px"><label for="stu" style="font-weight:600">Tên học viên</label><input type="text" id="stu" style="flex:1;min-width:160px" placeholder="Nhập tên để ghi vào bảng điểm"></div>
   <div class="grid" id="g"></div></div>`);
   const inp=v.querySelector('#stu');inp.value=S.name||'';inp.oninput=()=>{S.name=inp.value.trim();save()};
