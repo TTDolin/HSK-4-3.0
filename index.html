@@ -175,13 +175,16 @@ th:first-child,td:first-child{text-align:left}
 @media (prefers-reduced-motion:no-preference){.flash{transition:transform .15s}.flash:active{transform:scale(.99)}}
 </style>
 
+<style>.bar .notice{background:rgba(0,0,0,.18);color:#FFE9C7;font-size:12.5px;font-style:italic;text-align:center;padding:4px 16px;line-height:1.35}
+.hero .notice-hero{position:relative;z-index:3;margin:18px auto 0;max-width:640px;font-size:13.5px;font-style:italic;color:#FFE2A3;background:rgba(0,0,0,.18);border:1px solid rgba(242,196,109,.35);border-radius:999px;padding:6px 16px}
+@media print{.bar .notice{color:#000;background:none}}</style>
 <div class="bar"><div class="bar-in">
   <a href="#trang-dau" style="display:contents"><img src="logo.png" alt="Tiếng Trung Dolin"></a>
   <h1>Ôn tập HSK 4 3.0 · Tiếng Trung Dolin</h1>
   <a href="#bai-hoc" id="nav-home">Bài học</a>
   <a href="#thi-thu" id="nav-exam">Thi thử</a><a href="#khau-ngu" id="nav-kn">Khẩu ngữ</a>
   <a href="#bang-diem" id="nav-score">Bảng điểm</a>
-</div></div>
+</div><div class="notice">Tài liệu lưu hành nội bộ, học viên vui lòng không gửi cho bất kì ai</div></div>
 <main class="wrap" id="app"></main>
 
 <script src="data.js"></script>
@@ -413,6 +416,7 @@ function landing(){const q=QUOTES[0];
       <a class="card" href="#khau-ngu"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg></span><b>Khẩu ngữ</b><small>Thi thử nói · máy chấm điểm</small></a>
       <a class="card" href="#bang-diem"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M16 5h3a3 3 0 0 1-3 4M8 5H5a3 3 0 0 0 3 4M12 13v4M8 20h8"/></svg></span><b>Bảng điểm</b><small>Theo dõi tiến bộ của em</small></a>
     </nav>
+    <div class="notice-hero">Tài liệu lưu hành nội bộ, học viên vui lòng không gửi cho bất kì ai</div>
     <div class="foot">Giáo trình HSK 4 (3.0) · 20 bài · Giáo viên: 杨老师</div></section>`);
   v.querySelector('.zh').innerHTML=q[0].split('，').map(x=>'<span>'+x+'</span>').join('<span class="cm">，</span>');v.querySelector('.py').textContent=q[1];v.querySelector('.hv').textContent=q[2];
   v.querySelector('.vi').innerHTML=q[3];v.querySelector('.src').textContent='— '+q[4];
